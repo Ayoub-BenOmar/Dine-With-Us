@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-0 m-0 h-[100vh]">
+    <nav class="bg-gray-900 text-white py-4 px-24">
+        <div class="container flex justify-between items-center">
+            <a href="#" class="navbar-brand">
+                <img src="imgs/navbar-brand.svg" alt="Restaurant Logo" class="h-[70px]">
+            </a>
+            <div class="flex items-center">
+                <a href="#" class="text-primary">CALL US : <span class="text-gray-400 pl-2 text-sm">(123) 456 7890</span></a>
+            </div>
+        </div>
+    </nav>
+    <section class="h-[630px] flex justify-center items-center">
+        
+                <div id="logModal" class="bg-gray-900 relative rounded-lg shadow p-8">
+                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+                        <h3 class="text-lg font-semibold text-white ">
+                            Login
+                        </h3>
+                    </div>
+                    <form class="p-4 md:p-5">
+                        <div class="grid gap-4 mb-4 grid-cols-2">
+                            <div class="col-span-2">
+                                <label for="username" class="block mb-2 text-sm font-medium text-white ">Username</label>
+                                <input type="text" name="username" id="username" class="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg block w-full py-2.5 px-24" required="">
+                            </div>
+                            <div class="col-span-2">
+                                <label for="password" class="block mb-2 text-sm font-medium text-white ">Password</label>
+                                <input type="text" name="password" id="password" class="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg block w-full py-2.5 px-24" required="">
+                            </div>
+                        </div>
+                        <button type="submit" class="text-gray-900 inline-flex items-center bg-white hover:bg-gray-500 hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                            Login
+                        </button>
+                    </form>
+                    <div class="text-md font-semibold text-white">
+                        Don't have a account ? <a href="" id="sign_up">Sign up!</a>
+                    </div>
+                </div>
+
+
+                <div id="signModal" class="hidden bg-gray-900 relative rounded-lg shadow p-8">
+                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+                        <h3 class="text-lg font-semibold text-white ">
+                            Login
+                        </h3>
+                    </div>
+                    <form class="p-4 md:p-5">
+                        <div class="grid gap-4 mb-4 grid-cols-2">
+                            <div class="col-span-2">
+                                <label for="full_name" class="block mb-2 text-sm font-medium text-white ">Full Name</label>
+                                <input type="text" name="full_name" id="full_name" class="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg block w-full py-2.5 px-24" required="">
+                            </div>
+                            <div class="col-span-2">
+                                <label for="username" class="block mb-2 text-sm font-medium text-white ">Username</label>
+                                <input type="text" name="username" id="username" class="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg block w-full py-2.5 px-24" required="">
+                            </div>
+                            <div class="col-span-2">
+                                <label for="password" class="block mb-2 text-sm font-medium text-white ">Password</label>
+                                <input type="text" name="password" id="password" class="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg block w-full py-2.5 px-24" required="">
+                            </div>
+                            <div class="col-span-2">
+                                <label for="email" class="block mb-2 text-sm font-medium text-white ">Email</label>
+                                <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg block w-full py-2.5 px-24" required="">
+                            </div>
+                        </div>
+                        <button type="submit" class="text-gray-900 inline-flex items-center bg-white hover:bg-gray-500 hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                            Login
+                        </button>
+                    </form>
+                    <div class="text-md font-semibold text-white">
+                        Already have an account ?  <a href="" id="sign_in">Sign in!</a>
+                    </div>
+                </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
