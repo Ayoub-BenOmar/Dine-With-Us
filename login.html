@@ -13,7 +13,7 @@
                 <img src="imgs/navbar-brand.svg" alt="Restaurant Logo" class="h-[70px]">
             </a>
             <div class="flex items-center">
-                <a href="#" class="text-primary">CALL US : <span class="text-gray-400 pl-2 text-sm">(123) 456 7890</span></a>
+                <a href="#" class="text-orange-700">CALL US : <span class="text-gray-400 pl-2 text-sm">(123) 456 7890</span></a>
             </div>
         </div>
     </nav>
@@ -41,7 +41,7 @@
                         </button>
                     </form>
                     <div class="text-md font-semibold text-white">
-                        Don't have a account ? <a href="" id="sign_up">Sign up!</a>
+                        Don't have an account ? <a href="" id="sign_up">Sign up!</a>
                     </div>
                 </div>
 
@@ -49,7 +49,7 @@
                 <div id="signModal" class="hidden bg-gray-900 relative rounded-lg shadow p-8">
                     <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
                         <h3 class="text-lg font-semibold text-white ">
-                            Login
+                            Sign Up
                         </h3>
                     </div>
                     <form class="p-4 md:p-5">
@@ -72,7 +72,7 @@
                             </div>
                         </div>
                         <button type="submit" class="text-gray-900 inline-flex items-center bg-white hover:bg-gray-500 hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                            Login
+                            Sign Up
                         </button>
                     </form>
                     <div class="text-md font-semibold text-white">
@@ -81,6 +81,32 @@
                 </div>
     </section>
 
-    <script src="script.js"></script>
+    <div class="bg-gray-900 px-16 py-8">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <img src="imgs/navbar-brand.svg" alt="Logo" class="h-10">
+            </div>
+            <div class="flex space-x-4">
+                <a href="#" class="text-white hover:text-orange-700">Our Company</a>
+                <a href="#" class="text-white hover:text-orange-700">Our Location</a>
+                <a href="#" class="text-white hover:text-orange-700">Help Center</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white px-16 py-8">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <p class="mb-4 md:mb-0">&copy; 2024, All rights reserved</p>
+            <div class="flex space-x-4">
+                <a href="#" class="text-white hover:text-orange-700"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-white hover:text-orange-700"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-white hover:text-orange-700"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-white hover:text-orange-700"><i class="fab fa-google"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="login.js"></script>
 </body>
 </html>
