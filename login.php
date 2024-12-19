@@ -1,3 +1,22 @@
+<?php 
+include "db.php";
+
+if ($_SERVER['REQUEST_METHOD'] == "POST" ){
+    $nom = $_POST["username"];
+    $email = $_POST["email"];
+    $phone = $_POST["phone"];
+    $password = $_POST["password"];
+    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+
+    // echo $nom . $email . $phone . $password;
+
+    $sql = "INSERT INTO `users`(`nom`,`email`,`phone`,`password`) 
+            VALUES('$nom', '$email', '$phone', '$password')";
+
+    $result = $conn->query($sql);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +25,7 @@
     <title>Login page</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="p-0 m-0 h-[100vh]">
     <nav class="bg-gray-900 text-white py-4 px-24">
         <div class="container flex justify-between items-center">
@@ -17,23 +37,25 @@
             </div>
         </div>
     </nav>
-    <section class="h-[630px] flex justify-center items-center">
-        
+
+    <section class="relative bg-cover bg-center h-screen flex items-center justify-center" style="background-image: url('imgs/section.jpg');">
+        <div class="absolute inset-0 brightness-50" style="background-image: url('imgs/section.jpg'); background-size: cover; background-position: center;"></div>
+            <div class="absolute inset-0 bg-black opacity-50"></div>
                 <div id="logModal" class="bg-gray-900 relative rounded-lg shadow p-8">
                     <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
                         <h3 class="text-lg font-semibold text-white ">
                             Login
                         </h3>
                     </div>
-                    <form class="p-4 md:p-5">
+                    <form class="p-4 md:p-5" action="" method="POST">
                         <div class="grid gap-4 mb-4 grid-cols-2">
                             <div class="col-span-2">
-                                <label for="username" class="block mb-2 text-sm font-medium text-white ">Username</label>
-                                <input type="text" name="username" id="username" class="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg block w-full py-2.5 px-24" required="">
+                                <label for="email" class="block mb-2 text-sm font-medium text-white ">Email</label>
+                                <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg block w-full py-2.5 px-24" required="">
                             </div>
                             <div class="col-span-2">
                                 <label for="password" class="block mb-2 text-sm font-medium text-white ">Password</label>
-                                <input type="text" name="password" id="password" class="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg block w-full py-2.5 px-24" required="">
+                                <input type="password" name="password" id="password" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg block w-full py-2.5 px-24" required="">
                             </div>
                         </div>
                         <button type="submit" class="text-gray-900 inline-flex items-center bg-white hover:bg-gray-500 hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center">
@@ -52,23 +74,23 @@
                             Sign Up
                         </h3>
                     </div>
-                    <form class="p-4 md:p-5">
+                    <form class="p-4 md:p-5" action="" method="POST">
                         <div class="grid gap-4 mb-4 grid-cols-2">
                             <div class="col-span-2">
-                                <label for="full_name" class="block mb-2 text-sm font-medium text-white ">Full Name</label>
-                                <input type="text" name="full_name" id="full_name" class="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg block w-full py-2.5 px-24" required="">
-                            </div>
-                            <div class="col-span-2">
                                 <label for="username" class="block mb-2 text-sm font-medium text-white ">Username</label>
-                                <input type="text" name="username" id="username" class="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg block w-full py-2.5 px-24" required="">
+                                <input type="text" name="username" id="username" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg block w-full py-2.5 px-24" required="">
                             </div>
                             <div class="col-span-2">
                                 <label for="password" class="block mb-2 text-sm font-medium text-white ">Password</label>
-                                <input type="text" name="password" id="password" class="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg block w-full py-2.5 px-24" required="">
+                                <input type="password" name="password" id="password" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg block w-full py-2.5 px-24" required="">
                             </div>
                             <div class="col-span-2">
                                 <label for="email" class="block mb-2 text-sm font-medium text-white ">Email</label>
-                                <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg block w-full py-2.5 px-24" required="">
+                                <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg block w-full py-2.5 px-24" required="">
+                            </div>
+                            <div class="col-span-2">
+                                <label for="phone" class="block mb-2 text-sm font-medium text-white ">Phone</label>
+                                <input type="number" name="phone" id="phone" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg block w-full py-2.5 px-24" required="">
                             </div>
                         </div>
                         <button type="submit" class="text-gray-900 inline-flex items-center bg-white hover:bg-gray-500 hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center">

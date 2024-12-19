@@ -7,8 +7,15 @@ CREATE TABLE IF NOT EXISTS users (
     nom VARCHAR(100) NOT NULL,
     email VARCHAR(150) UNIQUE NOT NULL,
     phone INT(14) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL
+    password VARCHAR(255) NOT NULL,
 );
+
+CREATE TABLE IF NOT EXISTS roles (
+    id_roles INT AUTO_INCREMENT PRIMARY KEY,
+    id_user INT NOT NULL,
+    role ENUM ('admin', 'client') NOT NULL,
+    FOREIGN KEY (id_user) REFERENCES users(id_user) ON DELETE CASCADE
+)
 
 CREATE TABLE IF NOT EXISTS menus (
     id_menu INT AUTO_INCREMENT PRIMARY KEY,
