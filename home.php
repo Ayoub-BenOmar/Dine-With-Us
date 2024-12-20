@@ -20,7 +20,7 @@
                     <a href="#service" class="hover:text-orange-700">Our Service</a>
                     <a href="#team" class="hover:text-orange-700">Our Team</a>
                     <a href="#testmonial" class="hover:text-orange-700">Testimonials</a>
-                    <a href="history.html" class="hover:text-orange-700">My Reservations</a>
+                    <a href="history.php" class="hover:text-orange-700">My Reservations</a>
                 </div>
             </div>
             <div class="flex items-center">

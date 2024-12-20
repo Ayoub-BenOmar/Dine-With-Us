@@ -1,38 +1,60 @@
 <?php 
-include('db.php');
-if($_SERVER['REQUEST_METHOD'] == "POST"){
-    if( isset($_POST['name']) &&isset($_POST['email']) && isset($_POST['phone']) && isset($_POST['password']) && isset($_POST['confirmPassword']) && isset($_POST['termsCheck'])){
-            $name = remove_space($_POST['name']);
-            $email = remove_space($_POST['email']);
-            $phone = remove_space($_POST['phone']);
-            $password = remove_space($_POST['password']);
-            $confirmPassword = remove_space($_POST['confirmPassword']);
-            $termsCheck = $_POST['termsCheck'];
-            if($termsCheck !== "on"){
-                die( "You must agree to the terms");
-            }
-            if ($password !== $confirmPassword) {
-                die("Passwords do not match.");
-            }
-            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                die("Invalid email format.");
-            }
-            $phone = preg_replace('/\D/', '', $phone);
-            $hashpass = password_hash($password, PASSWORD_DEFAULT);
-            echo "done";
-            $insert_data = $conn->prepare("INSERT INTO `users`(`name`,`email`,`password`,`role`,`created_at`) VALUES(?,?,?,'client', NOW())");
-            $insert_data->bind_param("sss",$name,$email,$hashpass);
-            $insert_data->execute();
-            if ($insert_data->affected_rows > 0) {
-                echo "User created successfully";
-            } else {
-                echo "Error creating user: " . $insert_data->error;
-            }
-        }else{
-            die("You must enter any data");
-        }
-}
+include "db.php";
 
-function remove_space($str){
-    return trim($str);
+if ($_SERVER ["REQUEST_METHOD"] == "POST") {
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
+    $email = trim($_POST['email']);
+    $phone = trim($_POST['phone']);
+
+     // basic validation
+    if (empty($username) || empty($password) || empty($email) || empty($phone)) {
+        echo "All fields are required";
+        exit;
+    }
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "Invalid email format";
+        exit;
+    }
+
+    // email check 
+    $checkEmail = $conn->prepare("SELECT email FROM users WHERE email = ?");
+    $checkEmail->bind_param("s", $email);
+    $checkEmail->execute();
+    $checkEmail->store_result();
+
+     // phone check
+     $checkPhone = $conn->prepare("SELECT phone FROM users WHERE phone = ?");
+     $checkPhone->bind_param("s", $phone);
+     $checkPhone->execute();
+     $checkPhone->store_result();
+
+    if ($checkPhone->num_rows > 0) {
+        echo "Phone number already exists";
+        exit;
+    }
+
+    if ($checkEmail->num_rows > 0) {
+        echo"Email already exists";
+        exit;
+    }
+
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+    $stmt = $conn->prepare("INSERT INTO users (nom, password, email, phone) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssss", $username, $hashedPassword, $email, $phone);
+
+    if ($stmt->execute()) {
+            echo "Account created successfully!";
+            
+    } else {
+            echo "ERROR";
+    }
+
+    $stmt->close();
+    $checkEmail->close();
+    $checkPhone->close();
+    $conn->close();
 }
+?>
