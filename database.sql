@@ -12,10 +12,10 @@ CREATE TABLE IF NOT EXISTS users (
 
 CREATE TABLE IF NOT EXISTS roles (
     id_roles INT AUTO_INCREMENT PRIMARY KEY,
-    id_user INT NOT NULL,
     role ENUM ('admin', 'client') NOT NULL,
+    id_user INT NOT NULL,
     FOREIGN KEY (id_user) REFERENCES users(id_user) ON DELETE CASCADE
-)
+);
 
 CREATE TABLE IF NOT EXISTS menus (
     id_menu INT AUTO_INCREMENT PRIMARY KEY,
