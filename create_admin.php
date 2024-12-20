@@ -4,7 +4,7 @@ include "db.php";
 $admin_name = "Admin Name";
 $admin_email = "admin@example.com";
 $admin_phone = "1234567890";
-$admin_password = "your_secure_password";
+$admin_password = "2000";
 
 $hashed_password = password_hash($admin_password, PASSWORD_DEFAULT);
 

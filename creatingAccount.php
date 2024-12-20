@@ -43,7 +43,7 @@ if ($_SERVER ["REQUEST_METHOD"] == "POST") {
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
     $stmt = $conn->prepare("INSERT INTO users (nom, password, email, phone) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssss", $username, $hashedPassword, $email, $phone);
+    $stmt->bind_param("ssis", $username, $hashedPassword, $email, $phone);
 
     if ($stmt->execute()) {
             echo "Account created successfully!";

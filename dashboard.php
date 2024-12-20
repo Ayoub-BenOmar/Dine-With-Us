@@ -15,9 +15,9 @@
             </a>
             <div class="flex items-center justify-center w-full">
                 <div class="flex space-x-4">
-                    <a href="menu.html" class="hover:text-orange-700">Menu</a>
-                    <a href="plat.html" class="hover:text-orange-700">Plat</a>
-                    <a href="dashboard.html" class="hover:text-orange-700">Dashboard</a>
+                    <a href="menu.php" class="hover:text-orange-700">Menu</a>
+                    <a href="plat.php" class="hover:text-orange-700">Plat</a>
+                    <a href="dashboard.php" class="hover:text-orange-700">Dashboard</a>
                 </div>
             </div>
             <div class="flex items-center">
@@ -91,8 +91,8 @@
                             <p class="text-sm text-gray-600">16/03/2024 - 20:00 | 2 Seats</p>
                         </div>
                         <div class="flex space-x-2">
-                            <button class="bg-green-500 text-white px-3 py-1 rounded-md hover:bg-green-600 transition">Accepter</button>
-                            <button class="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 transition">Refuser</button>
+                            <button class="bg-gray-900 text-white px-3 py-1 rounded-md hover:bg-green-600 transition">Accepter</button>
+                            <button class="bg-gray-900 text-white px-3 py-1 rounded-md hover:bg-red-600 transition">Refuser</button>
                         </div>
                     </div>
                     <!-- Autre réservation -->
@@ -102,8 +102,8 @@
                             <p class="text-sm text-gray-600">17/03/2024 - 19:30 | 3 Seats</p>
                         </div>
                         <div class="flex space-x-2">
-                            <button class="bg-green-500 text-white px-3 py-1 rounded-md hover:bg-green-600 transition">Accepter</button>
-                            <button class="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 transition">Refuser</button>
+                            <button class="bg-gray-900 text-white px-3 py-1 rounded-md hover:bg-green-600 transition">Accepter</button>
+                            <button class="bg-gray-900 text-white px-3 py-1 rounded-md hover:bg-red-600 transition">Refuser</button>
                         </div>
                     </div>
                 </div>

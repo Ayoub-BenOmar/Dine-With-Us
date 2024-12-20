@@ -15,9 +15,9 @@
             </a>
             <div class="flex items-center justify-center w-full">
                 <div class="flex space-x-4">
-                    <a href="menu.html" class="hover:text-orange-700">Menu</a>
-                    <a href="plat.html" class="hover:text-orange-700">Plat</a>
-                    <a href="dashboard.html" class="hover:text-orange-700">Dashboard</a>
+                    <a href="menu.php" class="hover:text-orange-700">Menu</a>
+                    <a href="plat.php" class="hover:text-orange-700">Plat</a>
+                    <a href="dashboard.php" class="hover:text-orange-700">Dashboard</a>
                 </div>
             </div>
             <div class="flex items-center">
